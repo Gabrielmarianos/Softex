@@ -16,5 +16,7 @@ while (rodar):
             idade = 2022 - ano
             print (nome,', em 2022 você completa',idade,'anos.')
             rodar = False
+        else:
+            idade = Erro
     except : 
         print ('Erro. O número digitado não é valido.')

@@ -1,0 +1,68 @@
+#Desenvolva um código que simule uma eleição com três candidatos.
+#- candidato_X => 889
+#- candidato_Y => 847
+#- candidato_Z => 515
+#- branco => 0
+
+#O código deve perguntar se deseja finalizar a votação depois do voto. Caso o
+#número do voto não corresponda a nenhum candidato ou seja branco, ele deve ser
+#tratado como nulo. Se for inserido um texto ao invés de número, o código deve
+#retornar uma mensagem para votar novamente.
+
+#Quando a votação for finalizada, o código deverá mostrar o vencedor, aquele com
+#o maior número de votos e, também, a quantidade de votos de cada candidato, os
+#brancos e nulos 
+
+#Resposrta em Python
+
+candx = 0
+candy = 0
+candz = 0
+bran = 0
+nulo = 0
+
+cont = True
+while (cont):
+    try:
+        print ('Digite o número do candidato escolhido:')
+        print ('889. Para para votar no candidato_x')
+        print ('847. Para votar no candidato_y')
+        print ('515. Para votar no candidato_z')
+        print ('0. Para votar nulo')
+        cand = int(input ())
+        
+        if (cand == 889):
+            candx = candx + 1 
+            
+        elif (cand == 847):
+            candy = candy + 1 
+            
+        elif (cand == 515):
+            candz = candz + 1 
+            
+        elif (cand == 0):
+            bran = bran + 1 
+            
+        else:
+            nulo = nulo + 1
+        
+        ence = int(input ('Digite zero para encerrar a votação ou outro número para continuar: '))
+        if (ence == 0):
+            cont = False
+        
+    except:
+        print ('Vote novamente!')
+        
+
+if ((candx > candy) & (candx > candz)):
+    print('O candidato_x foi o vencedor da eleição com', candx, 'votos.')
+elif((candy > candx) & (candy > candz)):
+    print('O candidato_y foi o vencedor da eleição com', candy, 'votos.')
+elif ((candz > candx) & (candz > candy)):
+    print('O candidato_z foi o vencedor da eleição com', candz, 'votos.')
+  
+print('O candidato_x teve', candx, 'votos.')  
+print('O candidato_y teve', candy, 'votos.')
+print('O candidato_z teve', candz, 'votos.')
+print('Foram registrados', bran, 'votos brancos.')
+print('Foram registrados', nulo, 'votos nulos.')

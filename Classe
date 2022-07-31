@@ -1,0 +1,39 @@
+#Crie uma classe de sua preferência com, no mínimo, uma variável, um método e um incremento. Depois, desenvolva três ou mais objetos para testar o código.
+
+#Resposta em Python:
+
+class Motocicleta:
+  cont = 0
+
+  def __init__(self, fabricante, modelo):
+    self.fabricante = fabricante
+    self.modelo = modelo
+    Motocicleta.cont+=1
+
+  def ligarmoto(self, chave):
+    if chave == "on":
+      print("A moto", Motocicleta.cont, "está ligada\n")
+
+    elif chave == "off":
+      print("A moto", Motocicleta.cont, "está desligada\n")
+
+  def escreveratributos(self):
+    print("O fabricante da moto", Motocicleta.cont, "é: ", self.fabricante)
+    print("O modelo da moto", Motocicleta.cont, "é: ", self.modelo)
+
+m1 = Motocicleta("Honda", "XRE")
+m1.escreveratributos()
+m1.ligarmoto("on")
+
+m2 = Motocicleta("Yamaha", "Fazer")
+m2.escreveratributos()
+m2.ligarmoto("off")
+
+
+m3 = Motocicleta("BMW", "G 310 GS")
+m3.escreveratributos()
+m3.ligarmoto("on")
+
+
+
+print("Foram cadastrados", Motocicleta.cont, "objetos.")

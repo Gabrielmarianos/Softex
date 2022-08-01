@@ -1,0 +1,37 @@
+#Crie uma classe e insira nela, no mínimo, dois atributos, os quais devem ter um
+#método acessor (get) e um método modificador (set) para cada. Defina um objeto
+#para cada atributo e elabore um construtor para criar alguma regra.
+
+#A atividade pode ser realizada em qualquer linguagem de programação ou apenas
+#utilizando algoritmos.
+
+#Resposta em Python:
+
+class Carro:
+
+  def __init__(self, modelo, cor):
+    self.modelo = modelo
+    self.cor = cor
+    print("O carro informado é um", modelo, cor)
+
+  def get_modelo(self):
+    return self.modelo
+
+  def set_modelo(self, mod):
+    self.modelo = mod
+
+  def get_cor(self):
+    return self.cor
+
+  def set_cor(self, c):
+    self.cor = c
+
+car = Carro("Gol", "Preto")
+
+var = input("Digite o novo modelo do carro: ")
+car.set_modelo(var)
+
+var = input("Digite a nova cor do carro: ")
+car.set_cor(var)
+
+print("O carro foi alterado para um", car.get_modelo(), car.get_cor())

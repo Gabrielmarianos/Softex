@@ -1,0 +1,31 @@
+#Estruture três códigos, os quais devem conter uma função de manipulação de string que obtenha resultado.
+
+#Resposta em Python:
+
+#Código 1:
+
+frase = str (input("Escreva uma frase: "))
+frase = frase.upper()
+
+print(frase)
+
+#Código 2:
+
+pos = "a"
+frase = str (input("Escreva a frase desejada: "))
+print(frase)
+
+frase = frase.lower()
+
+posicao = frase.find(pos)
+print('A letra "A" aparece pela primeira vez na seguinte posição: ', posicao + 1)
+
+#Código 3:
+
+texto = str (input("Escreva o texto desejado: "))
+texto = texto.lower()
+subs = "a"
+
+quant = texto.count(subs)
+
+print('A letra "A" aparece ', quant, 'vezes no seu texto.')

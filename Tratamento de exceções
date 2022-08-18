@@ -1,0 +1,29 @@
+/*Crie uma situação em que ocorra uma exceção dentro de um código. Utilize try/catch para realizar a captura e tratamento dessa exceção. */
+
+//Resposta:
+
+public class Main
+{
+	public static void main(String[] args) {
+		
+		int[] num = {6, 14, 10, 9, 7, 84, 11, 21, 15};
+		int[] den = {2, 3, 5, 7, 0};
+		
+		for (int i = 0; i < num.length; i++){
+		    
+		    for (int j = 0; j < den.length; j++){
+		        
+		        try{
+		        
+		        System.out.println(num[i] +  "/" + den[j] + "≅" + (num[i]/den[j]));
+		        
+		    }
+		    catch(ArithmeticException | ArrayIndexOutOfBoundsException e){
+		        System.out.println("Ocorreu um erro");
+		    }
+		    
+		    }
+		}
+		
+	}
+}

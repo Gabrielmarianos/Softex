@@ -1,0 +1,41 @@
+Acesse pelo menos dois sites de sua preferência e os inspecione com o botão direito do mouse na página web.
+Com o código fonte aberto você deve: 
+ 
+Verificar no código algum elemento que utilize JavaScript; 
+Marcar alguns elementos do site; 
+Explicar como ele se comporta. Exemplo: entrar no site do Google, inspecionar o botão de pesquisa, verificar o código e explicar qual a finalidade do botão.
+ 
+ 
+Resposta:
+
+O primeiro site escolhido foi o do globo esporte (https://ge.globo.com/), onde foi inspecionado o botão “Assine já”. O código a seguir tem a finalidade de inserir uma
+mensagem e disponibilizar um botão, para quando o usuário clicar ele seja direcionado para uma outra página. 
+   
+<div id="ge-touchpoint-pirulito" class="glb-grid grid-24 lingueta-pirulito"><div class="titulo-pirulito">
+            <div class="conteudo-pirulito">
+                <div class="img-globoplay"></div>
+                <div class="texto-pirulito">Aproveite o combo Globoplay + Premiere por um precinho 🤏. É só R$ 39,90/mês, papai! 🤑</div>
+            </div>
+            <div class="assine-pirulito">
+                <a href="https://ad.doubleclick.net/ddm/trackclk/N866894.1559338GLOBOESPORTE.COM/B26448395.340153163;dc_trk_aid=532049324;dc_trk_cid=174065894;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;ltd=" target="_blank">
+                    <div class="pirulito-link pirulito-link-globoplay">
+                        <strong>Assine já</strong>
+                    </div>
+                </a>
+            </div>
+        </div></div>
+
+
+
+O segundo site escolhido foi o do google (https://www.google.com/), onde foi inspecionado o botão “Estou com sorte”. O código a seguir tem a finalidade de inserir os
+botões “Pesquisa google” e “Estou com sorte”. Quando o usuário clicar em estou com sorte o programa ira direcionar o usuário para o site que mais se identifica com o 
+assunto digitado anteriormente pelo usuário.
+	
+<div class="FPdoLc lJ9FBc">
+  <center>
+    <input class="gNO89b" value="Pesquisa Google" aria-label="Pesquisa Google" name="btnK" role="button" tabindex="0" type="submit" data-ved="0ahUKEwjmo_eWvOP5AhUhr5UCHW1CDeMQ4dUDCAs"> 
+
+    <input class="RNmpXc" value="Estou com sorte" aria-label="Estou com sorte" name="btnI" type="submit" jsaction="trigger.kWlxhc" data-ved="0ahUKEwjmo_eWvOP5AhUhr5UCHW1CDeMQ19QECAw"> 
+    </center>
+  </div>
+</div>

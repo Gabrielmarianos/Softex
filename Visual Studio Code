@@ -1,0 +1,18 @@
+Atividade proposta: Com ajuda da leitura complementar, você deve configurar o seu ambiente de desenvolvimento JavaScript. Esse ambiente pode ser uma IDE ou um editor de código-fonte. Para isso, você deve levar em consideração alguns pontos: 
+ 
+O seu ambiente precisa programar na linguagem JavaScript; 
+Se necessário, configure seu ambiente; 
+Deixe ele pronto para uso, ou seja, sem mais configurações. 
+ 
+Escreva, no mínimo, um parágrafo mostrando seu ambiente configurado, explique sua escolha.  
+
+Resposta:
+
+Para criar o ambiente de 
+A criação do ambiente de desenvolvimento foi realizada com o auxílio do Visual Studio Code que é um editor de código-fonte que possui suporte integrado para JavaScript. Para configurar o ambiente e deixá-lo pronto para uso, foram instalados os seguintes plugins:
+
+Portuguese (Brazil) Language Pack for Visual Studio Code;
+Omni Theme para deixar o tema do Visual Studio Code escuro; 
+Indenticator para tornar mais fácil a visualização do bloco de código que está identado;
+Indent-Rainbow para tornar a indentação do código mais legível ao criar linhas com cores para cada nível;
+Bracket Pair Colorizer para identificar os colchetes correspondentes com cores.

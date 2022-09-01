@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+   
+   <script>
+
+        var num1 = parseInt(prompt('Digite o primeiro valor: '))
+
+        do {
+
+            var operacao = prompt('Digite a operação desejada: ')
+                        
+        } while (operacao!='+' && operacao!='-' && operacao!='*' && operacao!='/')
+
+        var num2 = parseInt(prompt('Digite o segundo valor: '))
+
+        var resultado = 0
+
+        var sobra = 0
+
+        switch (operacao) {
+            case "+":
+                resultado = num1 + num2
+                alert(resultado)
+                break
+
+            case "-":
+                resultado = num1 - num2
+                alert(resultado)
+                break
+
+            case "*":
+                resultado = num1 * num2
+                alert(resultado)
+                break
+
+            case "/":
+                resultado = num1 / num2
+                sobra = num1 % num2
+
+                alert('O resulata do da divisão é: ' + resultado + '\nE a sobra da divisão é: ' + sobra)
+                break
+        
+            default:
+                break;
+        }
+
+   </script>
+
+</body>
+</html>

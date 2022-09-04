@@ -1,0 +1,40 @@
+Crie dois códigos de sistema de notas para uma escola. O primeiro código deve ser um programa que informa se o aluno reprovou,
+ou não, com base nas três notas que ele adicionou ao programa. Utilize, no mínimo, um operador de atribuição e um operador
+ternário. 
+O segundo código é um programa que o aluno deve escrever duas notas e o retorno informa a nota mínima que ele deve tirar na 
+próxima prova para poder passar com nota sete.
+
+Primeiro código JS:
+
+<script>
+       var media = 0
+
+       var nota1 = Number.parseFloat(window.prompt('Informe a sua primeira nota: '))
+       media += nota1
+
+       var nota2 = Number.parseFloat(window.prompt('Informe a sua segunda nota: '))
+       media += nota2
+       
+       var nota3 = Number.parseFloat(window.prompt('Informe a sua terceira nota: '))
+       media += nota3
+
+       media /= 3
+
+       var resultado = (media >= 7)? 'aprovado' : 'reprovado'
+
+       window.alert('O aluno foi ' + resultado + ' com a média ' + media.toFixed(2) + '.')
+        
+</script>
+
+Segundo código JS:
+
+ <script>
+     var nota1 = Number.parseFloat(window.prompt('Informe a sua primeira nota: '))
+       
+     var nota2 = Number.parseFloat(window.prompt('Informe a sua segunda nota: '))
+       
+     var nota3 = 21 - nota1 - nota2
+                
+     window.alert('O aluno deve tirar uma nota ' + nota3.toFixed(2) + ' para passa com nota 7.')
+        
+ </script>

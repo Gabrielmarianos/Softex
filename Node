@@ -1,0 +1,31 @@
+Escolha algum código executável em JavaScript feito em atividades passadas e o coloque no Node.js. 
+Para isso, você deve ter o Node.js instalado. Após fazer essa migração, coloque seu código no arquivo 
+"index.js", teste e tire um print.
+
+Código:
+
+var readlineSync = require('readline-sync')
+
+var media = 0
+
+var nota1 = parseFloat(readlineSync.question('Informe a sua primeira nota: '))
+media += nota1
+
+var nota2 = parseFloat(readlineSync.question('Informe a sua segunda nota: '))
+media += nota2
+
+var nota3 = parseFloat(readlineSync.question('Informe a sua terceira nota: '))
+media += nota3
+
+media /= 3
+
+var resultado = (media >= 7)? 'aprovado' : 'reprovado'
+
+console.log('O aluno foi ' + resultado + ' com a média ' + media.toFixed(2) + '.')
+
+Testando:
+
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/107280530/190945465-d9853ba6-95e9-413e-8ab3-cd5f6a8a4f41.png" width="700px" />
+</div>

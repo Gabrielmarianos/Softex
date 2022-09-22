@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+
+        function ola(){
+            window.alert('Olá, vamos iniciar os calculos!')
+        }
+
+        function continuar(continua){            
+            
+            if(continua != 's'){
+                continua = false                
+            }
+            return continua
+
+        }
+
+        var calcular = (num1, num2, op) => {
+
+            if(op == '+'){
+
+                return num1 + num2
+            } else if(op == '-'){
+
+                return num1 - num2
+            } else if(op == '*'){
+
+                return num1 * num2
+            } else{
+                return num1 / num2
+            }          
+                    
+        
+        }
+
+        ola()
+
+        do{
+            
+            var n1 = parseInt(prompt('Digite o primeiro valor: '))            
+
+            do{
+                var operador = prompt('Informe a operação desejada: ')
+
+            }while (operador!='+' && operador!='-' && operador!='*' && operador!='/')
+
+            var n2 = parseInt(prompt('Digite o segundo valor: '))
+
+            var res = calcular(n1, n2, operador)
+
+            alert(n1 + operador + n2 + '=' + res)
+
+            var cont = prompt("Digite s para realizar outra operação e qualquer outro comando para encerrar: ")
+
+            var validar = continuar(cont)
+
+        } while(validar != false)
+
+    </script>
+</body>
+</html>

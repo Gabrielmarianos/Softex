@@ -23,6 +23,4 @@ app.get("/", function (req, res) {
 
 Testando com o Insomnia:
 
-<div align="center">
-<img src="https://github.com/Gabrielmarianos/Softex/blob/d7f0ed6ce0b149f2e8f5c279672269dc34a45e58/Print%20Rotas.png" width="700px" />
-</div>
+https://github.com/Gabrielmarianos/Softex/blob/98a93565103f3e1e1f643981781c8a367c47e8d7/Rotas

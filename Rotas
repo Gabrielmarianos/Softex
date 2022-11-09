@@ -1,0 +1,15 @@
+const express = require("express")
+const { append } = require("express/lib/response")
+const app = express()
+
+app.get("/", function (req, res) {
+    res.send("Hello World!");
+  });
+   
+  app.get("/Clientes/:Nome/:CPF", function (req, res) {
+    res.send(req.params);
+  });
+   
+  app.listen(8080, () => {
+    console.log("Servidor rodando na url http://localhost:8080");
+  });

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+<body>
+    <script>
+        document.write("Testando");
+
+document.write("<hr>");
+
+const aluno = {
+    nome: 'Gabriel',
+    matricula: 123456,
+    curso: 'Engenharia'
+};
+
+document.write("Propriedades do objeto aluno: <br>");
+
+
+for (const propriedade in aluno){
+    //document.write("${propriedade}: ${aluno[propriedade]}");
+    document.write(propriedade, "<br>");
+}
+
+document.write("<hr>");
+
+const array = [25, 14, 62, 02, 73];
+
+document.write("Elementos do array: <br>");
+
+for (const i of array){
+    document.write(i, " ")
+}
+    </script>
+</body>
+</html>

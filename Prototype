@@ -1,0 +1,94 @@
+export abstract class Veiculo {
+    constructor(
+    public modelo: string,
+    public marca: string,
+    public cor: string,
+    public numeroRodas: number,
+    ) {}
+    abstract get represent(): string;
+    abstract get clone(): this;
+}
+
+export class Carro extends Veiculo {
+    constructor(
+    public modelo: string,
+    public marca: string,
+    public cor: string,
+    public numeroRodas: number,
+    public numeroPortas: number,
+    ) {
+    super(modelo, marca, cor, numeroRodas);
+    }
+
+    get represent(): string {
+    let retorno = '';
+    for (const n in this) {
+        retorno += `${n} -> ${this[n]}\n`;
+    }
+
+    return retorno;
+    }
+
+    get clone(): this {
+    const novoObj = Object.create(this);
+    return novoObj;
+    }
+}
+
+export class Moto extends Veiculo {
+    constructor(
+    public modelo: string,
+    public marca: string,
+    public cor: string,
+    public numeroRodas: number,
+    public cilindradas: number,
+    ) {
+    super(modelo, marca, cor, numeroRodas);
+    }
+
+    get represent(): string {
+    let retorno = '';
+    for (const n in this) {
+        retorno += `${n} -> ${this[n]}\n`;
+    }
+
+    return retorno;
+    }
+
+    get clone(): this {
+    const novoObj = Object.create(this);
+    return novoObj;
+    }
+}
+ 
+export class Aplicacao {
+    private readonly arrayVeiculos: Veiculo[] = [];
+
+    constructor(...args: Veiculo[]) {
+    for (const veiculo of args) {
+        this.criarArray(veiculo);
+    }
+    }
+
+    private criarArray(...veiculos: Veiculo[]): void {
+    for (let v = 0; v < veiculos.length; v++) {
+        for (let i = 0; i < 3; i++) {
+        this.arrayVeiculos.push(veiculos[v].clone);
+        }
+    }
+    }
+
+    log(): void {
+    let i = 1;
+    for (const v of this.arrayVeiculos) {
+        console.log(`Veiculo ${i++}: \n${v.represent}`);
+    }
+    return;
+    }
+}
+  
+const carro = new Carro('Cruze', 'Chevrolet', 'Azul', 4, 4);
+const moto = new Moto('XRE', 'Honda', 'Cinza', 2, 300);
+
+const aplicacao = new Aplicacao(carro, moto);
+aplicacao.log();

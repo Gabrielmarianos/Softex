@@ -1,0 +1,59 @@
+interface Sanduiche{
+
+    getItem():string
+    getPreco():number
+
+}
+ 
+class SanduicheFrango implements Sanduiche{
+
+    private item = 'Sanduiche de Frango'
+    private preco = 4.50 
+    
+    getItem(): string {
+        return this.item
+    }
+    
+    getPreco(): number {
+        return this.preco
+    }
+}
+
+class IngredienteDecorator implements Sanduiche{
+    constructor(protected produto: Sanduiche){}
+        
+    getItem(): string{
+        return this.produto.getItem()
+    }
+    getPreco(): number {
+        return this.produto.getPreco()
+    }
+}    
+
+class Pepperoni extends IngredienteDecorator{
+    
+    getItem():string{
+        return this.produto.getItem() + ', Pepperoni'
+    }
+
+    getPreco():number{
+        return this.produto.getPreco() + 0.99
+    }
+}
+
+class MussarelaRalada extends IngredienteDecorator{
+    
+    getItem():string{
+        return this.produto.getItem() + ', Queijo mussarela ralado'
+    }
+
+    getPreco(): number {
+        return this.produto.getPreco() + 2.00
+    }
+}
+
+
+const pedido = new SanduicheFrango()
+const adicional1 = new Pepperoni(pedido)
+const adicional2 = new MussarelaRalada(adicional1)
+    console.log(`O ${adicional2.getItem()} Custa $${adicional2.getPreco()}.`);  

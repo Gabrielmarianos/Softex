@@ -1,0 +1,44 @@
+interface Pato{
+    som():string
+    
+}
+
+interface Galinha{
+    som():string
+    
+}
+
+class GalinhaPadrao implements Galinha{
+    som(): string {
+        return 'cócó'
+    }
+    
+}
+
+class PatoPadrao implements Pato{
+    som(): string {
+        return 'Quack-quack'
+    }
+    
+}
+
+class PatoAdaptado implements Pato{
+    constructor(protected adaptador: GalinhaPadrao){}
+    
+    som(): string {
+        return this.adaptador.som()
+    }
+    
+}
+    
+console.log('O som padrão da galinha:');
+const animal1 = new GalinhaPadrao()
+console.log(animal1.som());
+
+console.log('O som padrão do pato:');
+const animal2 = new PatoPadrao()
+console.log(animal2.som());
+
+console.log('O som do pato adaptado:');
+const patoCarcarejador = new PatoAdaptado(animal1)
+console.log(patoCarcarejador.som())

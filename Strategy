@@ -1,0 +1,47 @@
+var readlinesync = require('readline-sync')
+
+interface Strategy {
+    execute(num1: number, num2: number): number
+}
+
+class Soma implements Strategy {
+    public execute(num1: number, num2: number): number {
+       return parseInt(num1.toString()) + parseFloat(num2.toString())
+    }
+}
+
+class Subtracao implements Strategy {
+    public execute(num1: number, num2: number): number {
+        return num1 - num2
+    }
+}
+
+class Multiplicacao implements Strategy {
+    public execute(num1: number, num2: number): number {
+        return num1 * num2
+    }
+}
+
+class Calculadora {
+
+    calcular(operacao: Strategy) {
+        return operacao.execute(num1, num2)
+    }
+}
+
+
+let num1: number = readlinesync.question('Digite o primeiro número: \n')
+let num2: number = readlinesync.question('Digite o segundo número: \n')
+let operador: string = readlinesync.question('informe a operacao que deseja realizar: (+) (-) (x): \n')
+
+const conta = new Calculadora()
+
+if (operador == '+') {
+    console.log(`${num1} + ${num2} = ${conta.calcular(new Soma())}`)
+} else if (operador == '-') {
+    console.log(`${num1} - ${num2} = ${conta.calcular(new Subtracao())}`)
+} else if (operador == 'x') {
+    console.log(`${num1} x ${num2} = ${conta.calcular(new Multiplicacao())}`)
+} else {
+    throw Error('ERR04 - Operação inválida')
+}

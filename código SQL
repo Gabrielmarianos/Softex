@@ -1,0 +1,46 @@
+De acordo com as tabelas, programe um código SQL para gerar a estrutura do banco de dados dessa biblioteca. 
+Siga as instruções: 
+
+1. inclua a coluna DATA_NASCIMENTO na tabela ALUNO do tipo string e de tamanho 10 caracteres; 
+2. altere a coluna TELEFONE para CONTATO e seu tipo de dado para string; 
+3. inclua o campo ISBN na tabela LIVRO, com tamanho de 13 caracteres do tipo inteiro; 
+4. e remova o campo ISBN da tabela LIVRO.
+
+Resposta:
+
+create table ALUNO 
+(
+id int not null auto_icrement,
+nome varchar (15) not null
+matrícula int (4),
+email varchar (50),
+endereço varchar (50),
+telefone int (10),
+primary key (id)
+) default charset = utf8;
+
+create table LIVRO 
+(
+Cod_Livro int not null auto_increment
+Titulo varchar(50 not null,
+autor varchar (30) not null,
+Cod_sessao int (3),
+primary key (Cod_Livro)
+) default charset = utf8;
+
+
+1. inclua a coluna DATA_NASCIMENTO na tabela ALUNO do tipo string e de tamanho 10 caracteres; 
+
+alter table ALUNO add column Data_Nascimento varchar(10);
+
+2. altere a coluna TELEFONE para CONTATO e seu tipo de dado para string; 
+
+Alter table ALUNO change column Telefone Contato varchar(20);
+
+3. inclua o campo ISBN na tabela LIVRO, com tamanho de 13 caracteres do tipo inteiro;
+
+alter table LIVRO add column ISBN int (13);
+ 
+4. e remova o campo ISBN da tabela LIVRO.
+
+alter table LIVRO drop column ISBN;

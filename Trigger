@@ -1,0 +1,44 @@
+create database lanches;
+use lanches;
+
+create table lanches (
+	id int auto_increment not null,
+    nome varchar(30),
+    preco float,
+    primary key (id)
+);
+
+create table historico_preco (
+	id int auto_increment not null,
+    data_hora datetime,
+    id_lanche int,
+    valor_anterior float,
+    valor_novo float,
+    primary key (id),
+    foreign key (id_lanche) references lanches(id)
+);
+
+DROP TRIGGER IF EXISTS `lanches`.`lanches_AFTER_UPDATE`;
+
+DELIMITER $$
+USE `lanches`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `lanches`.`lanches_AFTER_UPDATE` AFTER UPDATE ON `lanches` FOR EACH ROW
+BEGIN
+if new.preco <> old.preco then
+	insert into historico_preco values (default, now(), new.id, old.preco, new.preco);
+    end if;
+END$$
+DELIMITER ;
+
+insert into lanches values
+(default,'COXINHA','9'),
+(default,'EMPADA','6.5');
+
+select * from lanches;
+
+UPDATE lanches SET preco = 10 WHERE (`id` = '1');
+
+select * from historico_preco;
+
+UPDATE lanches SET preco = 7.9 WHERE (`id` = '2');
+UPDATE lanches SET preco = 9.5 WHERE (`id` = '1');

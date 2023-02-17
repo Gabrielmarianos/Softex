@@ -1,0 +1,74 @@
+CREATE TABLE 'clínicas' (
+  `id` int NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `uf` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) default charset = utf8;
+
+INSERT INTO `clínicas` VALUES (1,'CNS','Olinda','PE'),(2,'CNH','RECIFE','PE'),(3,'CST','RECIFE','PE');
+
+CREATE TABLE `origem` (
+    `id` int NOT NULL,
+    `nome` varchar(50) DEFAULT NULL,
+    `cidade` varchar(50) DEFAULT NULL,
+    `regiao` varchar(20) DEFAULT NULL,
+    `uf` varchar(2) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) default charset = utf8;
+
+LOCK TABLES `origem` WRITE;
+INSERT INTO `origem` VALUES (1,'CLÍNICA NOSSA SENHORA','TABAJARA','Olinda','PE'),(2,'CLÍNICA NOVO HORIZONTE','DERBY','RECIFE','PE'),(3,'CLÍNICA SANTA TEREZA','ENCRUZILHADA','RECIFE','PE'),(4,'CLINICA MAIS SAUDE','JANGA','PAULISTA','PE');
+
+CREATE TABLE `paciente` (
+    `codigo` int NOT NULL,
+    `nome` varchar(30) DEFAULT NULL,
+    `sexo` enum('M','F') DEFAULT NULL,
+    PRIMARY KEY (`codigo`)
+) default charset = utf8;
+
+LOCK TABLES `paciente` WRITE;
+INSERT INTO `paciente` VALUES (1,'PEDRO NUNES','M'),(2,'BRUNA CAMARGO','F'),(3,'CAMILA NONATO','F'),(4,'JORGE FERREIRA','M');
+
+CREATE TABLE `regulacao` (
+    `codigo` int NOT NULL,
+    `cod_paciente` int DEFAULT NULL,
+    `motivo` text,
+    `resol` enum('A','C') DEFAULT NULL,
+    `clin_orig` int DEFAULT NULL,
+    `cod_dest` int DEFAULT NULL,
+    PRIMARY KEY (`codigo`),
+    KEY `cod_paciente` (`cod_paciente`),
+    KEY `cod_dest` (`cod_dest`),
+    KEY `clin_orig` (`clin_orig`),
+    CONSTRAINT `regulacao_ibfk_1` FOREIGN KEY (`cod_paciente`) REFERENCES paciente` (`codigo`),
+    CONSTRAINT `regulacao_ibfk_2` FOREIGN KEY (`cod_dest`) REFERENCES `clínicas` (`id`),
+    CONSTRAINT `regulacao_ibfk_3` FOREIGN KEY (`clin_orig`) REFERENCES `origem` (`id`)
+) default charset = utf8;
+
+LOCK TABLES `regulacao` WRITE;
+INSERT INTO `regulacao` VALUES (1,3,'CLINICA MEDICA','A',4,1),(2,1,'GERIATICA','A',5,2),(3,2,'PEDIATRICA','C',5,NULL),(4,5,'UTI','A',3,3),(5,1,'CARDIOLOGIA','C',5,NULL),(6,4,'ODONTO','A',2,3),(7,2,'ESTETICA','A',1,3);
+
+--
+--
+
+select origem.regiao, regulacao.motivo
+from regulacao inner join origem
+on origem.id = regulacao.clin_orig
+order by origem.regiao;
+
+select regulacao.resol, clínicas.nome
+from regulacao left join clínicas
+on regulacao.cod_dest = clínicas.id;
+
+select regulacao.resol, clínicas.nome
+from regulacao right join clínicas
+on regulacao.cod_dest = clínicas.id;
+
+select * from regulacao
+left join paciente
+on regulacao.cod_paciente = paciente.codigo
+union
+select * from regulacao
+right join paciente
+on regulacao.cod_paciente = paciente.codigo;

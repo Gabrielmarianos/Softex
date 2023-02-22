@@ -1,0 +1,30 @@
+create database bd_loja;
+
+create table cadastro(
+id_cliente int(3) not null auto_increment,
+nome varchar(20) not null,
+sobrenome varchar (20),
+sexo enum ('M','F'), 
+cidade varchar(10),
+data_cadastro date,
+primary key (id_cliente)
+)default charset = utf8;
+
+insert into cadastro values
+(default, 'Pedro', 'Nunes', 'M', 'Recife', 20230116),
+(default, 'Matheus', 'Nonato', 'M', 'Caruaru', 20230116),
+(default, 'Sandra', 'Lins', 'F', 'Olinda', 20230117),
+(default, 'Maria', 'Tereza', 'F', 'Paulista', 20230118),
+(default, 'Jorge', 'Farias', 'M', 'Olinda', 20230118),
+(default, 'Bruna', 'Pessoa', 'F', 'Toritama', 20230118),
+
+/*Criando a funçao*/
+CREATE FUNCTION fn_relatorioCadastro(varData DATE)
+RETURNS INT
+RETURN
+(SELECT count(id_cliente) AS idCadastrado 
+FROM cadastro
+WHERE data_cadastro = varData);
+
+/*Chamando a função*/
+SELECT fn_relatorioCadastro(20230118);

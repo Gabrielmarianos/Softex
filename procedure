@@ -1,0 +1,32 @@
+create database bd_lanchonete;
+
+create table venda(
+id_venda int (3) not null auto_increment,
+produto varchar (50) not null,
+valor decimal (5,2),
+quantidade int (3),
+data_venda date,
+primary key (id_venda)
+)default charset = utf8;
+
+/*INPUT DE DADOS*/
+insert into venda values
+(default, 'coxinha', 8.50, 30, 20230115),
+(default, 'pizza', 36.00, 12, 20230115),
+(default, 'suco', 9.00, 20, 20230115),
+(default, 'torta', 11.00, 5, 20230115),
+(default, 'empada', 8.00, 8 20230115),
+(default, 'pizza', 36.00, 11, 20230116),
+(default, 'pastel', 7.00, 9, 20230116),
+(default, 'pudin', 6.00, 6, 20230117),
+default, 'coxinha', 8.50, 25, 20230117),
+(default, 'pizza', 36.00, 9, 20230117),
+(default, 'suco', 9.00, 7, 20230117),
+
+/*PROCEDURE*/
+create procedure pr_vendaDia (varData date)
+select produto, quantidade, data_venda from venda
+where data_venda = varData;
+
+/*CHAMADA DO PROCEDURE*/
+CALL pr_vendaDia(20230115);

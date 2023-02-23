@@ -1,0 +1,14 @@
+const express = require ('express')
+const app = express()
+
+app.get('/user',(req, res) => {
+    res.send('Metodo GET - Listar usuários')
+});
+
+app.post('/user',(req, res) => {
+    res.send('Metodo POST - Incluir usuários')
+});
+
+app.listen(8080, () => {
+    console.log('Rodando projeto')
+});

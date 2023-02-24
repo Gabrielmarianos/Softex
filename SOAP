@@ -1,0 +1,37 @@
+###### SOAP REQUEST ######
+POST /InStock HTTP/1.1
+Host: www.example.org
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetCadastro>
+    <m:CadastroID>72512</m:CadastroID>
+    <m:CadastroCEP>51020000</m:CadastroCEP>
+  </m:GetCadastro>
+</soap:Body>
+</soap:Envelope>
+
+###### SOAP RESPONSE ######
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: nnn
+
+<?xml version="1.0"?>
+
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+<soap:Body xmlns:m="http://www.example.org/stock">
+  <m:GetCadastroResponse>
+    <m:CadastroName>Julia Nascimemto</m:CadastroName>
+    <m:Cadastroendereco>Rua Maria Carolina, 514 - Boa Viagem</m:Cadastroendereco>
+    <m:CadastroNumber>(81) 984237115</m:CadastroNumber>
+  </m:GetCadastrResponse>
+</soap:Body>
+</soap:Envelope>

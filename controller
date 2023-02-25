@@ -1,0 +1,52 @@
+const express = require('express')
+const router = express.Router()
+const mysql = require('mysql')
+const app = new express()
+app.use(express.json())
+
+const con = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'bd_aluno'
+})
+
+
+router
+        .get('/bancoAluno', (req, res) => {
+            con.query('SELECT * FROM CADASTRO order by id_aluno;', (err, result)=> {
+                res.status(200).send(result)
+            })
+        })
+
+
+        .get('/bancoAluno/:id', (req, res) =>  {
+            con.query(`SELECT * FROM CADASTRO WHERE id_aluno = ${req.params.id};`, (err, result) => {
+            res.status(200).send(result)
+            })
+        })
+
+
+        .post('/bancoAluno', (req, res) =>{
+            con.query(`INSERT INTO CADASTRO (nome, idade) VALUES ( "${req.body.nome}" , "${req.body.idade}" ); `, (err, result) => {
+            res.status(201).send(result)
+            })
+        })
+
+        .put('/bancoAluno/:id', (req, res)=> {
+            con.query(`UPDATE CADASTRO SET NOME = "${req.body.nome}" , IDADE = "${rec.body.idade}" WHERE id_aluno = ${req.params.id}`, (err, resut) => {
+            res.status(201).send(resut)
+            })
+        })
+
+
+        .delete('/bancoAluno/:id', (req, res)=>{
+            let idDelete = req.params.id
+            con.query(`DELETE FROM cadastro WHERE id_aluno = ${idDelete};`, (err,result) =>{
+                res.status(201).send(result)
+            })
+        })  
+
+
+
+module.exports = router

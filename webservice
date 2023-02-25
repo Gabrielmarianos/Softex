@@ -1,0 +1,42 @@
+const express = require ('express')
+const app = express()
+
+const Professor = require("./database/prodessor")
+ 
+//rota POST
+app.post('/cadastrar', (req, res) =>{
+    var id = req.body.id
+    var nome = req.body.nome
+    var materia = req.body.materia
+    Professor.create({
+        id:id,
+        nome: nome,
+        materia: materia
+    }).then(()=>{
+        res.json("Professor cadastrado com sucesso") 
+    }) 
+})
+
+//rota GET - listar
+app.get('/prodessor', (req, res) => {
+    return res.json(Professor) 
+})
+
+//rota PUT - editar
+app.put('/prodessor/:5', (req, res) => {
+    const {Professor} = req.params 
+    const {nome} = req.nome
+
+    Professor[5] = nome 
+
+    return res.json(Professor) 
+})
+
+//rota DELETE - excluir
+app.delete('/prodessor/:13', (req, res) => {
+    const {Professor} = req.params 
+    Professor.splice(id, 13) 
+        
+    return res.send(); 
+    
+    })
